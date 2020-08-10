@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+.body-container {
+    display: grid;
+    width: 100vw;
+    grid-template-rows: auto auto;
+}
+
+.nav {
+    display: grid;
+    grid-template-columns: 1em auto 1fr auto auto 1em;
+    grid-template-areas: ". heading . username logout .";
+    column-gap: 1em;
+    height: 3em;
+    background-color: rgb(32, 23, 15);
+}
+
+.heading {
+    font-size: 2em;
+    color: rgb(240, 197, 197);
+    grid-area: heading;
+}
+
+.heading a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.username {
+    font-size: 1.2em;
+    color: rgb(240, 197, 197);
+    grid-area: username;
+}
+
+.logout {
+    font-size: 1.2em;
+    grid-area: logout;
+}
+
+.logout-btn {
+    background-color: antiquewhite;
+}
+
+.product-container {
+    margin: 3em 2em 0 2em;
+    place-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: unset;
+    justify-content: space-evenly;
+    gap: 1em;
+}

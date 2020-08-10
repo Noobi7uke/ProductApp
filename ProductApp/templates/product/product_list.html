@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products List</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="{% static 'product/styles/main.css' %}">
+</head>
+
+<body>
+    <div class="body-container">
+        <div class="nav">
+            <div class="heading"><a href="/">Products</a></div>
+            <div class="username">Hi, {{ user.username }}</div>
+            <div class="logout">
+                <form action="/auth/logout"><button class="btn logout-btn" type="submit">Logout</button></form>
+            </div>
+        </div>
+        <div class="product-container">
+            {% for product in product_list %}
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{product.image_url}}" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <p class="card-text">Quantity: {{product.quantity}}</p>
+                    <a href="{% url 'product:detail' product.id%}" class="btn btn-primary">Detail</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>

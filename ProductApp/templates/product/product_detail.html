@@ -1,0 +1,34 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products List</title>
+
+    <link rel="stylesheet" href="{% static 'product/styles/detail.css' %}">
+</head>
+
+<body>
+    <div class="body-container">
+        <div class="nav">
+            <div class="heading"><a href="/">Products</a></div>
+            <div class="username">Hi, {{ user.username }}</div>
+            <div class="logout">
+                <form action="/auth/logout"><button class="btn logout-btn" type="submit">Logout</button></form>
+            </div>
+        </div>
+        <div class="detail-container">
+            <div class="detail">
+                <img class="img" src="{{product.image_url}}">
+                <div class="body">
+                    <h5 class="name">{{product.name}}</h5>
+                    <p class="qty">Quantity: {{product.quantity}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
